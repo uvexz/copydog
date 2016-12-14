@@ -1,0 +1,38 @@
+{
+    "name": "CopyDog",
+    "description": "A simple theme for Ghost",
+    "homepage": "https://yjk.im/copydog/",
+    "demo": "https://yjk.im/",
+    "version": "0.01",
+    "engines": {
+        "ghost": "^0.11.0"
+    },
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.png",
+        "mobile": "assets/screenshot-mobile.png"
+    },
+    "author": {
+        "name": "YJK",
+        "email": "yjk@edu.ax",
+        "url": "https://yjk.im/"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Simple",
+            "Personal Blogs"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ygbhf/copydog.git"
+    },
+    "bugs": "https://github.com/ygbhf/copydog/issues",
+    "contributors": "https://github.com/ygbhf/copydog/graphs/contributors"
+}
