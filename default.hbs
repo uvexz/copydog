@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Page Meta --}}
+    <title>{{meta_title}}</title>
+
+    {{!-- Mobile Meta --}}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="//cdn.jsdelivr.net/npm/bootstrap@3.4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//cdn.jsdelivr.net/npm/font-awesome@4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        body, p, li, ul, h1, h2, h3, h4, h5, a, .btn{font-family: "Noto Sans SC","Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Hiragino Kaku Gothic Pro",Meiryo,"Malgun Gothic",sans-serif;}
+        .header .header-logo {height: 90vh;width: 100%;display: table;background-image: url({{#if @blog.cover_image}} {{@blog.cover_image}} {{else}} https://i.loli.net/2019/01/09/5c35bed6cb3a3.jpg {{/if}});background-color: #4A4A4A;background-repeat: no-repeat;background-position: center center;background-size: cover;}
+            .header .header-logo h1 {font-size: 36px;font-weight: 600;display: table-cell;vertical-align: bottom;text-align: left;padding-left: 20%;padding-right: 20%;padding-bottom: 40px;}
+                .header .header-logo h1 a {color:#fff;text-decoration: none; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);}
+                .header .header-logo h1 a:hover {color:red;text-decoration: none;}
+        .header .header-menu {height: 10vh;padding-left: 20%;padding-right: 20%;display: table;border-bottom: 1px solid #eee;width: 100%;}
+            .header .header-menu .header-nav {list-style:none;font-size:15px;display: table-cell;vertical-align: middle;}
+                .header .header-menu .header-nav li{position: relative;display: initial;padding-right:20px;}
+                .header .header-menu .header-nav li a:focus{background-color: #fff; font-weight: 400;}
+                .header .header-menu .header-nav a {text-decoration: none;color:#555;padding: 0 0 22px 0;display: initial;font-weight: 400;}
+                .header .header-menu .header-nav a:hover{color:red;background-color: #fff;}
+                .header .header-menu .header-nav a.active {color:red;font-weight: 400;}
+        .main .content {padding-left: 20%;padding-right: 20%;}
+        	.main .content .content-head {padding: 10px 0;}
+                .main .content .content-head h2 {font-size: 20px;padding-bottom: 5px;text-transform: uppercase;font-weight: 600;}
+                    .main .content .content-head h2 a {color:#000;text-decoration: none;}
+                    .main .content .content-head h2 a:hover {color:red;}
+                .main .content .content-head p {color:#555;font-size: 12px;}
+                .main .content .content-head p a {color:#555;font-size: 12px;text-decoration: none;}
+                .main .content .content-head p a:hover {color:red;}
+            .main .content .article {padding-top: 30px;}
+                .main .content .article img {display: inline-block;max-width: 100%;height: auto;padding: 4px;line-height: 1.42857143;background-color: #fff;border: 1px solid #ddd;border-radius: 4px;-webkit-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;}
+                .main .content .article ul {margin-top: 10px;margin-bottom: 10px;padding-left: 20px;list-style: square;}
+                .main .content .article p,.main .content .article a,.main .content .article blockquote,.main .content .article code,.main .content .article ul,.main .content .article li {font-size: 15px;}
+                .main .content .article h5 {font-size: 15px;font-weight: 600;}
+                .main .content .article h4 {font-size: 17px;font-weight: 600;}
+                .main .content .article h3 {font-size: 19px;font-weight: 600;}
+                .main .content .article h2 {font-size: 21px;font-weight: 600;}
+                .main .content .article h1 {font-size: 23px;font-weight: 600;}
+                .main .content .article a {color:red;text-decoration: none;}
+                .main .content .article a:hover {color:red;text-decoration: none;}
+                .main .content .article .back-to-top {color:#555;font-size: 15px;}
+                .main .content .article .back-to-top a {color:#555;font-size: 15px;text-decoration: none;}
+                .main .content .article .back-to-top a:hover {color:red;}
+            .main .content .content-pagi{padding:20px 0 0}
+				.main .content .content-pagi p{color:#555;font-size:15px;text-transform:uppercase}
+				.main .content .content-pagi p a{color:#555;font-size:15px;text-decoration:none}
+				.main .content .content-pagi p a:hover{color:#FF3A2D}
+        .footer {padding:30px 20% 30px 20%;}
+            .footer p {color:#000;font-size: 12px;font-weight: 600;}
+            .footer a {text-decoration: none;color:red;}
+		@media (max-width: 768px) {
+            .header .header-logo {height: 100vh;}
+            .header .header-logo h1{display: table-cell;vertical-align: middle;text-align: center;padding-left: 10px;padding-right: 10px;}
+            .header .header-menu {height:100%; padding:0;display: block;}
+            .header .header-menu .header-nav  {list-style:none;display: block;}
+            .header .header-menu .header-nav li {display: block;padding:6px;background-color: #eee;margin: 1px 0 0 0;}
+            .header .header-menu .header-nav a {color:#555;padding:0 0 0 10px;display: block;background-color: #eee;}
+            .header .header-menu .header-nav a:hover{color:red;background-color: #eee;}
+            .header .header-menu .header-nav a:visited{color:#555;background-color: #eee;}
+            .main .content {padding-left: 10px;padding-right: 10px;}
+            .footer {padding:30px 10px 30px 10px;}
+        }
+	</style>
+
+    {{!-- Ghost outputs important style and meta data with this tag --}}
+    {{ghost_head}}
+</head><body>
+<div class="header">
+	<div class="header-logo">
+		<h1><a href="/" class="start">{{meta_title}}</a></h1>
+	</div>
+	<div class="header-menu">
+		{{!-- The blog navigation links --}}
+    	{{navigation}}
+    </div>
+</div>
+<div class="main">
+
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        {{{body}}}
+
+</div>
+
+<div class="footer">
+		<p><i class="fa fa-copyright"></i></span> {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a>. Theme <a href="https://github.com/ygbhf/copydog" target="_blank">CopyDog</a> with <a href="https://github.com/TryGhost/Ghost" target="_blank">Ghost</a>.</p>
+</div>
+
+    {{!-- Ghost outputs important scripts and data with this tag --}}
+    {{ghost_foot}}
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+</body></html>
